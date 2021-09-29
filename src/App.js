@@ -1,6 +1,7 @@
 import "./App.css";
 import React,{useEffect,useState} from 'react';
 import Loading from "./components/loading";
+import MyMap from "./components/map/Map";
 import Weather from "./components/Weather";
 import Chart from "./components/Chart"
 
@@ -24,6 +25,7 @@ function App() {
         }
         console.log(parsedData)
         setDaily({xAxis,yAxis})
+        console.log(process.env);
         }
 
     useEffect(()=>{
@@ -46,6 +48,12 @@ function App() {
             />
             
             }
+            <h1>I am a Map</h1>
+            <div>
+                <MyMap>
+                    
+                </MyMap>
+            </div>
         </div>
         </>
     )
