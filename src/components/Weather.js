@@ -2,6 +2,7 @@ import React from "react";
 import Chart from "./Chart";
 
 function Weather({temp,main,icon,daily}) {
+    console.log("daily",daily)
     return (
         <div>
             <h2>Temp : {temp}*C</h2>

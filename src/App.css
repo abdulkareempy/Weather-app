@@ -3,6 +3,6 @@ html,body{
     padding:0;
 }
 
-p{
-    color:blue;
+.mapboxgl-ctrl.mapboxgl-ctrl-attrib,a.mapboxgl-ctrl-logo{
+    display:none;
 }

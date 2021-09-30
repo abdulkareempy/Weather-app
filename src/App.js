@@ -1,9 +1,10 @@
 import "./App.css";
 import React,{useEffect,useState} from 'react';
 import Loading from "./components/loading";
-import MyMap from "./components/map/Map";
 import Weather from "./components/Weather";
 import Chart from "./components/Chart"
+import Map from './components/map/Map';
+
 
 function App() {
     const [loading,setLoading] = useState(true);
@@ -14,6 +15,7 @@ function App() {
         setLoading(true);
         const response = await fetch("https://api.openweathermap.org/data/2.5/onecall?lat=17.33&lon=70&units=metric&appid=cd6e6035e1d85faa5b5262ca208b28bd");
         const parsedData = await response.json();
+        console.log(parsedData)
         setData(parsedData);
         setLoading(false);
         let xAxis = [];
@@ -23,9 +25,7 @@ function App() {
             yAxis.push(eachDay.temp.max);
             xAxis.push(d.slice(0,11));
         }
-        console.log(parsedData)
         setDaily({xAxis,yAxis})
-        console.log(process.env);
         }
 
     useEffect(()=>{
@@ -50,10 +50,11 @@ function App() {
             }
             <h1>I am a Map</h1>
             <div>
-                <MyMap>
-                    
-                </MyMap>
+            <Map style="mapbox://styles/mapbox/streets-v8"/>
             </div>
+        </div>
+        <div className="MapWrapper">
+            
         </div>
         </>
     )

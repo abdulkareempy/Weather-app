@@ -8,10 +8,17 @@ function Chart({dailyData}) {
           {
             label: 'Daily Temp in *C',
             data: dailyData.yAxis,
-            fill: true,
+            fill: false,
             backgroundColor: ['rgb(255, 99, 132)'],
             borderColor: 'rgba(25, 25, 132, 0.9)',
           },
+          {
+            label: 'Daily fareh in *k',
+            data: [29.5,28.7,29,28],
+            fill: false,
+            backgroundColor: ['rgb(22, 199, 132)'],
+            borderColor: 'rgba(250, 25, 132, 0.9)',
+          }
         ],
       };
       
@@ -21,7 +28,7 @@ function Chart({dailyData}) {
           yAxes: [
             {
               ticks: {
-                beginAtZero: false,
+                beginAtZero: true,
               },
             },
           ],
@@ -29,7 +36,7 @@ function Chart({dailyData}) {
       };
       
     return (
-        <div>
+        <div style={{backgroundColor:"currentcolor"}}>
             <Line 
             data = {data}
             options={options}/>
