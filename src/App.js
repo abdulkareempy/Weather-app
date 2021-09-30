@@ -36,7 +36,6 @@ function App() {
         <>
         <div>
             
-            <h1>React Weather App</h1>
             {loading || !data.current || !daily ?
             <Loading/>
             :
