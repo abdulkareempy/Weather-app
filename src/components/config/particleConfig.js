@@ -71,7 +71,7 @@ const particleConfig = {
       },
       size: {
         random: true,
-        value: 5,
+        value: 4,
       },
     },
     detectRetina: true,

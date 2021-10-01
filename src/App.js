@@ -1,63 +1,58 @@
 import "./App.css";
-import React,{useEffect,useState} from 'react';
+import React, { useEffect, useState } from "react";
 import Loading from "./components/loading";
 import Weather from "./components/Weather";
-import Chart from "./components/Chart"
-import Map from './components/map/Map';
-
+import Chart from "./components/Chart";
+import Map from "./components/map/Map";
+import FancyCard from "./components/card/FancyCard";
 
 function App() {
-    const [loading,setLoading] = useState(true);
-    const [data,setData] =  useState(null);
-    const [daily,setDaily] =  useState(null);
+    const [loading, setLoading] = useState(true);
+    const [data, setData] = useState(null);
+    const [daily, setDaily] = useState(null);
 
-    let getWeatherData = async ()=>{
+    let getWeatherData = async () => {
         setLoading(true);
-        const response = await fetch("https://api.openweathermap.org/data/2.5/onecall?lat=17.33&lon=70&units=metric&appid=cd6e6035e1d85faa5b5262ca208b28bd");
+        const response = await fetch(
+            "https://api.openweathermap.org/data/2.5/onecall?lat=17.33&lon=70&units=metric&appid=cd6e6035e1d85faa5b5262ca208b28bd"
+        );
         const parsedData = await response.json();
-        console.log(parsedData)
+        console.log(parsedData);
         setData(parsedData);
         setLoading(false);
         let xAxis = [];
         let yAxis = [];
-        for(var eachDay of parsedData.daily){
-            let d = new Date(eachDay.dt*1000).toUTCString()
+        for (var eachDay of parsedData.daily) {
+            let d = new Date(eachDay.dt * 1000).toUTCString();
             yAxis.push(eachDay.temp.max);
-            xAxis.push(d.slice(0,11));
+            xAxis.push(d.slice(0, 11));
         }
-        setDaily({xAxis,yAxis})
-        }
+        setDaily({ xAxis, yAxis });
+    };
 
-    useEffect(()=>{
+    useEffect(() => {
         getWeatherData();
-        
-    },[])
+    }, []);
     return (
         <>
-        <div>
-            
-            {loading || !data.current || !daily ?
-            <Loading/>
-            :
-            <Weather 
-            temp = {data.current.temp}
-            main = {data.current.weather[0].main}
-            icon = {data.current.weather[0].icon}
-            daily = {daily}
-            />
-            
-            }
-            <h1>I am a Map</h1>
             <div>
-            <Map style="mapbox://styles/mapbox/streets-v8"/>
+                {loading || !data.current || !daily ? (
+                    <Loading />
+                ) : (
+                    <div>
+                        <Weather
+                            temp={data.current.temp}
+                            main={data.current.weather[0].main}
+                            icon={data.current.weather[0].icon}
+                            daily={daily}
+                        />
+                        <h1>I am a Map</h1>
+                        <Map style="mapbox://styles/mapbox/streets-v8" />
+                    </div>
+                )}
             </div>
-        </div>
-        <div className="MapWrapper">
-            
-        </div>
         </>
-    )
+    );
 }
 
- export default App
-
+export default App;
