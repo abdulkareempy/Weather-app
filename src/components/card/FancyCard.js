@@ -1,19 +1,26 @@
-import React from 'react'
-import "./card.css"
+import React from "react";
+import "./card.css";
 
-function FancyCard({icon}) {
-    console.log("received this icon",icon)
+function FancyCard({ props }) {
+    console.log("received this in fancy Card", props);
     return (
         <div className="fancy-card">
             <div className="icon">
-            <img src={`http://openweathermap.org/img/wn/${icon}@2x.png`} alt="weather icon"/>
+                <img
+                    src={`http://openweathermap.org/img/wn/${props.icon}@2x.png`}
+                    alt="weather icon"
+                />
+            </div>
+            <div className="content">
+                <h1>Weather App</h1>
+                <h1 className="temp">
+                    {props.temp}
+                    <sup>o</sup>C
+                </h1>
+                <h1 className="desc">{props.description}</h1>
+            </div>
         </div>
-        <div className="content">
-            <h3>Weather App</h3>
-            <p>Expected Raining this morining</p>
-        </div>
-        </div>
-    )
+    );
 }
 
-export default FancyCard
+export default FancyCard;

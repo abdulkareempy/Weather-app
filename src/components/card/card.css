@@ -1,17 +1,10 @@
-body{
-    background-color: #2a9d8f;
-    margin:0;
-    padding:0;
-    box-sizing: border-box;
-    width:100vw;
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items: center;
-}
+
 
 .fancy-card{
-    position:relative;   
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
     display:flex;
     justify-content:center;
     align-items: center;
@@ -47,7 +40,7 @@ body{
     top:0;
     border-bottom-left-radius: 100px;
     border-bottom-right-radius: 100px;
-    background-color:  #ccc;
+    background-color:  #242325;
     z-index:100;
     box-shadow: 0 5px 0px #fff,
     inset 0 -5px 0px rgba(255,255,255,0.25),
@@ -62,7 +55,7 @@ body{
     position:absolute;
     transform: translateX(-100%);
     border-top-right-radius: 50%;
-    box-shadow: 18px -24px 1px 2px #ccc ;
+    box-shadow: 18px -24px 1px 2px #242325 ;
 
 }
 
@@ -74,21 +67,33 @@ body{
     position:absolute;
     right:-50px;
     border-top-left-radius: 50%;
-    box-shadow: -14px -18px 0px -11px #ccc;
+    box-shadow: -14px -18px 0px -11px #242325;
 
 }
 
 .icon img{
     background-color: transparent;
-    width:190px;
+    width:180px;
     overflow:hidden;
     position:absolute;
-    left:-25px;
+    left:-19px;
     top:-45px;
 
 }
 
-h3,p{
+.fancy-card .content h1{
     color:#fff;
-    text-Align:center;
+    text-align:center;
+
+}
+
+.fancy-card .content h1.temp{
+    font-size:62px;
+    margin: 8px;
+}
+
+.fancy-card .content h1.desc{
+    color:#24ff72;
+    font-size:40px;
+    margin: 8px;
 }

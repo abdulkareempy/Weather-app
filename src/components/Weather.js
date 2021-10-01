@@ -1,28 +1,20 @@
 import React from "react";
 import Chart from "./Chart";
-import Particles from "react-tsparticles";
-import particleConfig from "./config/particleConfig";
 import FancyCard from "./card/FancyCard"; 
 import "../App.css";
 // import from ""
-function Weather({ temp, main, icon, daily }) {
-    console.log("daily", daily);
+function Weather(props) {
+    // console.log("daily", daily);
     return (
-        <div className="particleWrapper">
-        <Particles
-          id="tsparticles"
-         
-          options={particleConfig}
-        />
+      <>
         <div className="weather-wrapper">
             {/* <h2>Temp : {temp}*C</h2>
             <h4>Weather: {main}</h4>
-            <img src={`http://openweathermap.org/img/wn/${icon}@2x.png`} /> */}
-            <FancyCard icon={icon}/>
+            <img src={`http://openweathermap.org/img/wn/01n@2x.png`} /> */}
+            <FancyCard props={props}/>
         </div>
-        <Chart dailyData={daily} />
-    
-        </div>
+        {/* <Chart dailyData={daily} /> */}
+        </>
       ); 
 }
 

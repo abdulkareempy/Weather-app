@@ -35,19 +35,19 @@ function App() {
     }, []);
     return (
         <>
-            <div>
-                {loading || !data.current || !daily ? (
+            <div className="App">
+                {loading || !daily || !data? (
                     <Loading />
                 ) : (
                     <div>
                         <Weather
+                            description = {data.current.weather[0].description}
                             temp={data.current.temp}
                             main={data.current.weather[0].main}
                             icon={data.current.weather[0].icon}
                             daily={daily}
                         />
-                        <h1>I am a Map</h1>
-                        <Map style="mapbox://styles/mapbox/streets-v8" />
+                        {/* <Map style="mapbox://styles/mapbox/streets-v8" /> */}
                     </div>
                 )}
             </div>
