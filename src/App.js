@@ -47,7 +47,6 @@ function App() {
                             icon={data.current.weather[0].icon}
                             daily={daily}
                         />
-                        {/* <Map style="mapbox://styles/mapbox/streets-v8" /> */}
                     </div>
                 )}
             </div>
@@ -56,3 +55,4 @@ function App() {
 }
 
 export default App;
+{/* <Map style="mapbox://styles/mapbox/streets-v8" /> */}

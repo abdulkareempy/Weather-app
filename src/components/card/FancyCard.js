@@ -12,7 +12,7 @@ function FancyCard({ props }) {
                 />
             </div>
             <div className="content">
-                <h1>Weather App</h1>
+                <h1 className="city">Weather App</h1>
                 <h1 className="temp">
                     {props.temp}
                     <sup>o</sup>C
